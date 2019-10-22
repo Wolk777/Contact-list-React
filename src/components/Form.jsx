@@ -1,30 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button'
 import DataField from './DataField'
 
-const Form = ({nameText, phoneText, photoUrl, onChange, onAdd, onRemove}) => 
+const Form = ({nameText, phoneText, photoUrl, onChangeName, onChangePhone, onChangePhoto, onAdd}) => 
   <form className="form">
-    <DataField name='name' title='First Name' value={nameText} 
-      onChange={onChange} placeholder='Your name'/>
-    <DataField name='phone' title='Mobile Phone' value={phoneText} 
-      onChange={onChange} placeholder='375-(XX)-XXX-XX-XX'/>
-    <DataField name='photo' title='Photo/URL' value={photoUrl} 
-      onChange={onChange} placeholder='https://www.nice_photo.ru'/>
+    <DataField 
+      name='name' 
+      title='First Name' 
+      value={nameText} 
+      onChange={onChangeName}
+      placeholder='First Name'/>
+    <DataField 
+      name='phone' 
+      title='Mobile Phone' 
+      value={phoneText} 
+      onChange={onChangePhone}
+      placeholder='375-(XX)-XXX-XX-XX'/>
+    <DataField 
+      name='photo' 
+      title='Photo/URL' 
+      value={photoUrl} 
+      onChange={onChangePhoto}
+      placeholder='link to the photo: "https://..."'/>
     <p className="containerBtn">
-      <Button valueBtn="Add" classBtn="classBtn" handler={onAdd}/>
-      <Button valueBtn="Delete" classBtn="classBtn" handler={(e) => {
-	    e.preventDefault();
-      	onRemove(`${nameText}-${phoneText}`)}}/>
+      <button className="BtnAdd" onClick={onAdd}>Add</button>
     </p>
   </form>
 
 Form.propTypes = {
-  nameText: PropTypes.string.isRequired,
-  phoneText:PropTypes.string.isRequired,
+  nameText: PropTypes.string,
+  phoneText:PropTypes.string,
   photoUrl:PropTypes.string,
-  onChange:PropTypes.func,
+  onChangeName:PropTypes.func,
+  onChangePhone:PropTypes.func,
+  onChangePhoto:PropTypes.func,
   onAdd:PropTypes.func,
 }
 
-  export default Form
+export default Form
