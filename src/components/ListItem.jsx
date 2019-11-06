@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ListItem = ({ name, phoneNumber, id, onRemove }) => (
+const ListItem = ({ name, phoneNumber, onRemove }) => (
 	<li>
 		<i className="fas fa-user-secret"></i>
 		<span> {name}, Tel: {phoneNumber}</span>
-		<i className="fas fa-times" onClick={() => onRemove(id)}/>
+		<i className="fas fa-times" onClick={onRemove}/>
 	</li>
 )
 

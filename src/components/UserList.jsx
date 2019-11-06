@@ -8,9 +8,8 @@ const UserList = ({users, onRemove}) => {
       {users.map( ({ name, phoneNumber, id}) => 
         <ListItem key={phoneNumber} 
         name={name} 
-        phoneNumber={phoneNumber} 
-        id={id} 
-        onRemove={onRemove}/>
+        phoneNumber={phoneNumber}  
+        onRemove={() => onRemove(id)}/>
       )}
     </ul>
   );
