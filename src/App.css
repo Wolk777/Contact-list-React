@@ -5,14 +5,22 @@ body{
 .container {
   width: 500px;
   margin:50px auto 50px;
-  padding: 15px;
+  padding: 10px 15px;
   background-color: #91cef7;
 }
-.form input{
+.formInput{
   font-size: 1.1em;
   padding: 3px;
   width: 250px;
-  border-radius: 5px;
+  border: 1px solid RGBa(30, 144, 255,0.8);
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px RGBa(30, 144, 255,0.8);
+  outline: none;
+}
+.invalid{
+  border: 1px solid RGBa(139,0,0,0.7);
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px RGBa(139,0,0,0.7);
 }
 .form_label{
   float: left;
@@ -25,7 +33,15 @@ body{
   color:DarkRed;
   text-align: right;
 }
-
+.massageValid{
+  height: 1.3em;
+  margin: 5px 0px;
+  font-size: 1.1em;
+  font-weight: 700;
+  font-family: 'Indie Flower', cursive; 
+  color:red;
+  text-align: center;
+}
 .BtnAdd{
   display: block;
   width: 250px;
@@ -39,6 +55,9 @@ body{
   background-color:#FFB8A2;
   border:2px solid #666666;
   border-radius:3px;
+}
+.BtnAdd:hover{
+  cursor: pointer;
 }
 .containerSearch{
   margin-top: 30px;
@@ -54,8 +73,9 @@ body{
   border:2px solid #666666;
   border-right: none;
   border-radius:5px 0 0 5px;
+  outline: none;
 }
-.containerSearch button{
+.BtnSearch{
   font-size: 1.4em;
   font-family: 'Indie Flower', cursive;
   color:DarkRed;
@@ -65,10 +85,22 @@ body{
   border-radius:0 5px 5px 0;
   background-color:#A5FF76;
 }
-.containerSearch p {
+.BtnSearch:hover{
+  cursor: pointer;
+}
+.foundContacts {
   font-size: 1.1em;
-  position: relative;
-  padding-left: 40px;
+  margin-left: 40px;
+}
+.massageNotFound {
+  margin-left: 40px;
+  font-size: 1.1em;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  color:DarkRed;
+}
+.containerSearch .fas{
+  margin-right: 5px;
 }
 .userList{
   margin:10px 0px;
