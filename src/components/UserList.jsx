@@ -1,26 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ListItem from './ListItem'
 
-const UserList = ({users=[]}) => {
+const UserList = ({users, onRemove}) => {
   return(
-    <div className="UserList">
-      { users.length === 0 ?
-        <p>User list is empty</p> :
-        <ol>
-          {users.map(({name, phoneNumber}) =>
-            <li key={phoneNumber}>
-            {name}, Tel: {phoneNumber}</li>
-          )}
-        </ol>
-      }
-    </div>
+    <ul className="userList">
+      {users.map( ({ name, phoneNumber, id}) => 
+        <ListItem key={phoneNumber} 
+        name={name} 
+        phoneNumber={phoneNumber}  
+        onRemove={() => onRemove(id)}/>
+      )}
+    </ul>
   );
 }
 
 UserList.propTypes = {
   users: PropTypes.array,
-  name:PropTypes.string,
-  phoneNumber:PropTypes.number,
+  onRemove: PropTypes.func,
+  id: PropTypes.string,
 }
 
 export default UserList

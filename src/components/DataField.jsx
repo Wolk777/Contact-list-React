@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DataField = ({title, name, value, onChange, placeholder}) => (
+const DataField = ({title, name, value, valid, onChange, placeholder}) => (
   <p>
-    <label className="form_label" htmlFor={name}>{title}</label>
-    <input type="text" name={name} id={name} value={value} onChange={onChange} placeholder={placeholder}/>
+    <label 
+    	className="form_label" 
+    	htmlFor={name}>{title}
+    </label>
+    <input 
+    	type="text" 
+    	name={name} 
+    	id={name}
+      className={valid ? 'formInput' : 'formInput invalid'} 
+    	value={value} 
+    	onChange={onChange} 
+    	placeholder={placeholder}
+    />
   </p>
 )
 
